@@ -9,12 +9,13 @@ import { Testimonials } from "@/components/testimonials"
 import { FAQ } from "@/components/faq"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
-import { SITE_ORIGIN, siteDetails } from "@/lib/site-data"
+import { SITE_ORIGIN, absoluteUrl, siteDetails } from "@/lib/site-data"
 
 export const metadata: Metadata = {
   title: siteDetails.seo.th.title,
   description: siteDetails.seo.th.description,
   keywords: siteDetails.seo.th.keywords,
+  metadataBase: new URL(SITE_ORIGIN),
   alternates: {
     canonical: "/th",
     languages: {
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     siteName: siteDetails.name,
     images: [
       {
-        url: siteDetails.metaImage,
+        url: absoluteUrl(siteDetails.metaImage),
         width: 1200,
         height: 630,
         alt: `${siteDetails.name} exterior`,
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteDetails.seo.th.title,
     description: siteDetails.seo.th.description,
-    images: [siteDetails.metaImage],
+    images: [absoluteUrl(siteDetails.metaImage)],
   },
 }
 

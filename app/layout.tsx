@@ -5,7 +5,7 @@ import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 
 import { GaRouteTracker } from "@/components/analytics/ga-tracker"
-import { SITE_ORIGIN, hotelStructuredData, siteDetails } from "@/lib/site-data"
+import { SITE_ORIGIN, absoluteUrl, hotelStructuredData, siteDetails } from "@/lib/site-data"
 import "./globals.css"
 
 const playball = Playball({
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     siteName: siteDetails.name,
     images: [
       {
-        url: siteDetails.metaImage,
+        url: absoluteUrl(siteDetails.metaImage),
         width: 1200,
         height: 630,
         alt: `${siteDetails.name} exterior`,
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteDetails.seo.title,
     description: siteDetails.seo.description,
-    images: [siteDetails.metaImage],
+    images: [absoluteUrl(siteDetails.metaImage)],
   },
   robots: {
     index: true,

@@ -12,6 +12,7 @@ This project is optimised for Vercel. Follow the steps below to ship updates saf
 2. Accept the default Next.js framework preset. Vercel will run `npm install`, `npm run build`, and `npm run start` automatically.
 3. In **Settings → Environment Variables**, add any required values:
    - `NEXT_PUBLIC_GA_MEASUREMENT_ID` (optional, enables GA4 tracking and route analytics)
+   - `NEXT_PUBLIC_SITE_URL` (set to the canonical production URL so Open Graph images resolve)
 4. Upload or confirm all static assets (logo, room photos, highlight imagery) live under `public/` so `/rooms/*` and `/highlights/*` paths resolve after deployment.
 5. (Optional) Add your custom domain under **Settings → Domains**, then configure DNS before launch day.
 

@@ -1,4 +1,14 @@
-export const SITE_ORIGIN = "https://horangephukettown.com"
+const DEFAULT_SITE_ORIGIN = "https://horange-phuket-town.vercel.app"
+
+export const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_URL ?? DEFAULT_SITE_ORIGIN
+
+export function absoluteUrl(path: string) {
+  try {
+    return new URL(path, SITE_ORIGIN).toString()
+  } catch {
+    return `${SITE_ORIGIN}${path}`
+  }
+}
 
 export const BOOKING_URL = "https://hotels.cloudbeds.com/reservation/xwCU2d"
 
@@ -177,7 +187,7 @@ export const hotelStructuredData = {
   description: siteDetails.seo.description,
   alternateName: siteDetails.seo.th.title,
   availableLanguage: ["en", "th"],
-  image: siteDetails.metaImage,
+  image: absoluteUrl(siteDetails.metaImage),
   address: {
     "@type": "PostalAddress",
     streetAddress: siteDetails.address.street,

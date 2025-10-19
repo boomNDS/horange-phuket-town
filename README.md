@@ -61,6 +61,7 @@ npm run dev
 
 ### 📈 Analytics & SEO
 - `lib/site-data.ts` exposes Open Graph/Twitter card data and `hotelStructuredData` for schema.org coverage. Extend those objects as testimonials grow.
+- Configure `NEXT_PUBLIC_SITE_URL` to the production hostname so Open Graph and schema metadata point at live assets.
 - Google Analytics 4 support is opt-in: set `NEXT_PUBLIC_GA_MEASUREMENT_ID` to enable the GA snippet injected in `app/layout.tsx`.
 - CTA click tracking lives in `lib/analytics.ts` and powers hero, navigation, and room interactions.
 - Update the placeholder Google Search Console verification meta tag in `app/layout.tsx` once a real token is available.
