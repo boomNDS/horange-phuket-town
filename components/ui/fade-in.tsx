@@ -1,6 +1,6 @@
 "use client"
 
-import type { CSSProperties, ReactHTML, ReactNode } from "react"
+import type { CSSProperties, HTMLAttributeAnchorTarget, ReactHTML, ReactNode } from "react"
 import { useEffect, useMemo, useRef, useState } from "react"
 
 import { cn } from "@/lib/utils"
@@ -24,7 +24,10 @@ type FadeInProps = {
   once?: boolean
   threshold?: number
   style?: CSSProperties
-} & Omit<React.HTMLAttributes<HTMLElement>, "children">
+  href?: string
+  target?: HTMLAttributeAnchorTarget
+  rel?: string
+} & Omit<React.HTMLAttributes<HTMLElement>, "children" | "style" | "className">
 
 export function FadeIn({
   as,
