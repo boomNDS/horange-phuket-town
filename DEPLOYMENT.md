@@ -11,7 +11,8 @@ This project is optimised for Vercel. Follow the steps below to ship updates saf
 1. Visit https://vercel.com/new and import the repository.
 2. Accept the default Next.js framework preset. Vercel will run `npm install`, `npm run build`, and `npm run start` automatically.
 3. In **Settings → Environment Variables**, add any required values:
-   - `NEXT_PUBLIC_GA_MEASUREMENT_ID` (optional, for GA4 tracking)
+   - `NEXT_PUBLIC_GA_MEASUREMENT_ID` (optional, enables GA4 tracking and route analytics)
+4. Upload or confirm all static assets (logo, room photos, highlight imagery) live under `public/` so `/rooms/*` and `/highlights/*` paths resolve after deployment.
 4. (Optional) Add your custom domain under **Settings → Domains**.
 
 ## 3. Local verification before pushing
@@ -25,6 +26,7 @@ Fix any issues, commit, and push.
 ## 4. Preview deployments
 - Every push to a non-production branch triggers a preview deployment.
 - Share the preview URL with stakeholders. Verify images, analytics, and SEO metadata.
+- Confirm the localized `/th` route renders correctly and that structured data validates via the [Rich Results Test](https://search.google.com/test/rich-results).
 
 ## 5. Promote to production
 1. Merge into the production branch (e.g., `main`). Vercel will build a production deployment.
@@ -35,6 +37,7 @@ Fix any issues, commit, and push.
 - Confirm GA4 events are logging in Realtime reports (hero / nav / room CTAs).
 - Spot-check structured data using Google’s Rich Results Test (`https://search.google.com/test/rich-results`).
 - Review Vercel Analytics (if enabled) for Core Web Vitals.
+- Visit key sections (hero, highlights, rooms, contact) to ensure images served from `/rooms/*` and `/highlights/*` resolve without 404s.
 
 ## 7. Rollbacks
 - In Vercel → Deployments, click the ellipsis on a previous deployment and choose **Promote to Production** to revert.
