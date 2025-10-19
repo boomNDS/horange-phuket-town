@@ -1,17 +1,17 @@
-import Image from "next/image"
+import Image from "next/image";
 
-import { Car, Coffee, MapPin } from "@/components/icons"
-import { FadeIn } from "@/components/ui/fade-in"
-import { BLUR_DATA_URL } from "@/lib/image-placeholders"
-import { highlightItems } from "@/lib/site-data"
+import { Car, Coffee, MapPin } from "@/components/icons";
+import { FadeIn } from "@/components/ui/fade-in";
+import { BLUR_DATA_URL } from "@/lib/image-placeholders";
+import { highlightItems } from "@/lib/site-data";
 
 const iconMap = {
   "map-pin": MapPin,
   coffee: Coffee,
   car: Car,
-} as const
+} as const;
 
-type HighlightIcon = keyof typeof iconMap
+type HighlightIcon = keyof typeof iconMap;
 
 export function Highlights() {
   return (
@@ -20,17 +20,17 @@ export function Highlights() {
         <FadeIn
           as="div"
           direction="up"
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 sm:grid sm:grid-cols-3 sm:gap-8 sm:pb-0 max-w-5xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto"
         >
           {highlightItems.map((item, index) => {
-            const Icon = iconMap[item.icon as HighlightIcon]
+            const Icon = iconMap[item.icon as HighlightIcon];
 
             return (
               <FadeIn
                 as="article"
                 key={item.label}
                 delay={index * 120}
-                className="flex flex-col items-center text-center gap-4 group cursor-pointer snap-start min-w-[75%] sm:min-w-0"
+                className="flex flex-col items-center text-center gap-4 group cursor-pointer"
               >
                 <div className="relative w-full h-48 sm:h-56 overflow-hidden rounded-2xl shadow-lg">
                   <Image
@@ -55,10 +55,10 @@ export function Highlights() {
                   {item.label}
                 </span>
               </FadeIn>
-            )
+            );
           })}
         </FadeIn>
       </div>
     </section>
-  )
+  );
 }

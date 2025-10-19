@@ -1,99 +1,109 @@
-"use client"
+"use client";
 
-import type { CSSProperties } from "react"
-import { useEffect, useMemo, useRef, useState } from "react"
-import Image from "next/image"
+import type { CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 
-import { Button } from "@/components/ui/button"
-import { trackGaEvent } from "@/lib/analytics"
-import { BLUR_DATA_URL } from "@/lib/image-placeholders"
-import { BOOKING_URL, siteDetails } from "@/lib/site-data"
+import { Button } from "@/components/ui/button";
+import { trackGaEvent } from "@/lib/analytics";
+import { BLUR_DATA_URL } from "@/lib/image-placeholders";
+import { BOOKING_URL, siteDetails } from "@/lib/site-data";
 
-const PARALLAX_RANGE = 120
+const PARALLAX_RANGE = 120;
 
 export function Hero() {
-  const sectionRef = useRef<HTMLElement | null>(null)
-  const [parallaxEnabled, setParallaxEnabled] = useState(false)
-  const [parallaxOffset, setParallaxOffset] = useState(0)
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [parallaxEnabled, setParallaxEnabled] = useState(false);
+  const [parallaxOffset, setParallaxOffset] = useState(0);
 
   useEffect(() => {
     if (typeof window === "undefined") {
-      return undefined
+      return undefined;
     }
 
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     const handlePreferenceChange = () => {
-      setParallaxEnabled(!mediaQuery.matches)
-    }
+      setParallaxEnabled(!mediaQuery.matches);
+    };
 
-    handlePreferenceChange()
+    handlePreferenceChange();
 
     if (typeof mediaQuery.addEventListener === "function") {
-      mediaQuery.addEventListener("change", handlePreferenceChange)
-      return () => mediaQuery.removeEventListener("change", handlePreferenceChange)
+      mediaQuery.addEventListener("change", handlePreferenceChange);
+      return () =>
+        mediaQuery.removeEventListener("change", handlePreferenceChange);
     }
 
     if (typeof mediaQuery.addListener === "function") {
-      mediaQuery.addListener(handlePreferenceChange)
-      return () => mediaQuery.removeListener(handlePreferenceChange)
+      mediaQuery.addListener(handlePreferenceChange);
+      return () => mediaQuery.removeListener(handlePreferenceChange);
     }
 
-    return undefined
-  }, [])
+    return undefined;
+  }, []);
 
   useEffect(() => {
     if (!parallaxEnabled || typeof window === "undefined") {
-      setParallaxOffset(0)
-      return undefined
+      setParallaxOffset(0);
+      return undefined;
     }
 
-    let frame = 0
+    let frame = 0;
 
     const updateOffset = () => {
       if (!sectionRef.current) {
-        return
+        return;
       }
 
-      const rect = sectionRef.current.getBoundingClientRect()
-      const viewportHeight = window.innerHeight || 1
-      const progress = Math.min(Math.max((viewportHeight - rect.top) / (viewportHeight + rect.height), 0), 1)
-      const nextOffset = Math.round(((progress - 0.5) * PARALLAX_RANGE) * 100) / 100
+      const rect = sectionRef.current.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || 1;
+      const progress = Math.min(
+        Math.max(
+          (viewportHeight - rect.top) / (viewportHeight + rect.height),
+          0,
+        ),
+        1,
+      );
+      const nextOffset =
+        Math.round((progress - 0.5) * PARALLAX_RANGE * 100) / 100;
 
-      setParallaxOffset((previous) => (previous === nextOffset ? previous : nextOffset))
-    }
+      setParallaxOffset((previous) =>
+        previous === nextOffset ? previous : nextOffset,
+      );
+    };
 
     const handleScroll = () => {
       if (frame) {
-        window.cancelAnimationFrame(frame)
+        window.cancelAnimationFrame(frame);
       }
 
-      frame = window.requestAnimationFrame(updateOffset)
-    }
+      frame = window.requestAnimationFrame(updateOffset);
+    };
 
-    handleScroll()
+    handleScroll();
 
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    window.addEventListener("resize", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-      window.removeEventListener("resize", handleScroll)
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
       if (frame) {
-        window.cancelAnimationFrame(frame)
+        window.cancelAnimationFrame(frame);
       }
-    }
-  }, [parallaxEnabled])
+    };
+  }, [parallaxEnabled]);
 
   const backgroundStyle = useMemo<CSSProperties | undefined>(() => {
     if (!parallaxEnabled) {
-      return undefined
+      return undefined;
     }
 
     return {
       transform: `translate3d(0, ${parallaxOffset}px, 0)`,
-    }
-  }, [parallaxEnabled, parallaxOffset])
+    };
+  }, [parallaxEnabled, parallaxOffset]);
 
   return (
     <section
@@ -101,7 +111,11 @@ export function Hero() {
       id="hero"
       className="relative min-h-[85vh] h-auto sm:min-h-screen sm:h-screen flex items-center justify-center overflow-hidden py-24 sm:py-0"
     >
-      <div className="absolute inset-0 z-0 will-change-transform" style={backgroundStyle} aria-hidden="true">
+      <div
+        className="absolute inset-0 z-0 will-change-transform"
+        style={backgroundStyle}
+        aria-hidden="true"
+      >
         <Image
           src="/hotel-exterior.png"
           alt="Exterior of Horange Phuket Town boutique hotel"
@@ -116,17 +130,17 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-navy/60 via-navy/40 to-copper/50" />
       </div>
 
-      <div className="relative z-10 text-center text-white px-4 sm:px-6 animate-fade-up animate-duration-1000 animate-ease-out animate-once animate-fill-both">
-        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 sm:mb-6 drop-shadow-2xl leading-tight">
+      <div className="relative z-10 text-center text-white px-3 sm:px-6 animate-fade-up animate-duration-1000 animate-ease-out animate-once animate-fill-both">
+        <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-3 sm:mb-6 drop-shadow-2xl leading-tight">
           {siteDetails.name}
         </h1>
-        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-6 sm:mb-10 font-light tracking-wide drop-shadow-lg max-w-3xl mx-auto px-4 leading-relaxed sm:leading-relaxed">
+        <p className="text-base sm:text-xl md:text-2xl lg:text-3xl mb-5 sm:mb-10 font-light tracking-wide drop-shadow-lg max-w-3xl mx-auto px-2 leading-relaxed sm:leading-relaxed">
           {siteDetails.tagline}
         </p>
         <Button
           size="lg"
           asChild
-          className="bg-copper text-white hover:bg-copper/90 text-base sm:text-lg px-8 sm:px-12 py-6 sm:py-8 shadow-2xl hover:shadow-xl hover:scale-105 transition-all duration-300 rounded-full mb-4 sm:mb-6"
+          className="bg-copper text-white hover:bg-copper/90 text-sm sm:text-lg px-6 sm:px-12 py-5 sm:py-8 shadow-2xl hover:shadow-xl hover:scale-105 transition-all duration-300 rounded-full mb-3 sm:mb-6"
         >
           <a
             href={BOOKING_URL}
@@ -143,7 +157,9 @@ export function Hero() {
             Book Your Stay
           </a>
         </Button>
-        <p className="text-xs sm:text-sm font-semibold tracking-wider">✨ Best Price Guarantee</p>
+        <p className="text-xs sm:text-sm font-semibold tracking-wider">
+          ✨ Best Price Guarantee
+        </p>
       </div>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce hidden md:block">
@@ -152,5 +168,5 @@ export function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,57 +1,57 @@
-"use client"
+"use client";
 
-import { useEffect, useId, useRef, useState } from "react"
-import Image from "next/image"
+import { useEffect, useId, useRef, useState } from "react";
+import Image from "next/image";
 
-import { Button } from "@/components/ui/button"
-import { Menu, X } from "@/components/icons"
-import { trackGaEvent } from "@/lib/analytics"
-import { BOOKING_URL, navigationLinks, siteDetails } from "@/lib/site-data"
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "@/components/icons";
+import { trackGaEvent } from "@/lib/analytics";
+import { BOOKING_URL, navigationLinks, siteDetails } from "@/lib/site-data";
 
 export function Navigation() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const mobileMenuId = useId()
-  const mobileMenuLabelId = `${mobileMenuId}-label`
-  const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuId = useId();
+  const mobileMenuLabelId = `${mobileMenuId}-label`;
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (typeof document === "undefined") {
-      return undefined
+      return undefined;
     }
 
     if (mobileMenuOpen) {
-      const originalOverflow = document.body.style.overflow
-      document.body.style.overflow = "hidden"
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
 
       return () => {
-        document.body.style.overflow = originalOverflow
-      }
+        document.body.style.overflow = originalOverflow;
+      };
     }
 
-    document.body.style.overflow = ""
-    return undefined
-  }, [mobileMenuOpen])
+    document.body.style.overflow = "";
+    return undefined;
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     if (typeof document === "undefined" || !mobileMenuOpen) {
-      return undefined
+      return undefined;
     }
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setMobileMenuOpen(false)
+        setMobileMenuOpen(false);
       }
-    }
+    };
 
-    document.addEventListener("keydown", handleKeyDown)
-    return () => document.removeEventListener("keydown", handleKeyDown)
-  }, [mobileMenuOpen])
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     if (mobileMenuOpen) {
-      closeButtonRef.current?.focus()
+      closeButtonRef.current?.focus();
     }
-  }, [mobileMenuOpen])
+  }, [mobileMenuOpen]);
 
   return (
     <>
@@ -69,10 +69,17 @@ export function Navigation() {
             aria-expanded={mobileMenuOpen}
             aria-haspopup="dialog"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5 text-navy" /> : <Menu className="w-5 h-5 text-navy" />}
+            {mobileMenuOpen ? (
+              <X className="w-5 h-5 text-navy" />
+            ) : (
+              <Menu className="w-5 h-5 text-navy" />
+            )}
           </button>
 
-          <a href="#hero" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <a
+            href="#hero"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+          >
             <Image
               src="/logo.png"
               alt={`${siteDetails.name} logo`}
@@ -85,7 +92,11 @@ export function Navigation() {
 
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navigationLinks.map((link) => (
-              <a key={link.href} href={link.href} className="text-base font-medium text-gray-700 hover:text-copper transition-colors">
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-base font-medium text-gray-700 hover:text-copper transition-colors"
+              >
                 {link.label}
               </a>
             ))}
@@ -115,33 +126,36 @@ export function Navigation() {
 
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 md:hidden">
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
+          <div
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => setMobileMenuOpen(false)}
+          />
           <div
             id={mobileMenuId}
             role="dialog"
             aria-modal="true"
             aria-labelledby={mobileMenuLabelId}
-            className="absolute top-20 left-1/2 -translate-x-1/2 w-[90%] bg-white rounded-3xl shadow-2xl p-6 animate-fade-down animate-duration-300 animate-ease-out animate-once animate-fill-forwards focus:outline-none"
+            className="absolute top-20 left-1/2 -translate-x-1/2 w-[92%] max-w-md bg-white rounded-3xl shadow-2xl p-5 sm:p-6 animate-fade-down animate-duration-300 animate-ease-out animate-once animate-fill-forwards focus:outline-none"
           >
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
+              className="absolute top-3 right-3 p-2.5 hover:bg-gray-100 rounded-full transition-colors cursor-pointer"
               aria-label="Close navigation menu"
               ref={closeButtonRef}
             >
-              <X className="w-5 h-5 text-navy" />
+              <X className="w-6 h-6 text-navy" />
             </button>
             <p id={mobileMenuLabelId} className="sr-only">
               Mobile navigation
             </p>
-            <nav className="flex flex-col gap-4 mt-8">
+            <nav className="flex flex-col gap-2 mt-10">
               {navigationLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-lg font-medium text-gray-700 hover:text-copper transition-colors py-3 border-b last:border-b-0 border-gray-100"
+                  className="text-base sm:text-lg font-medium text-gray-700 hover:text-copper transition-colors py-4 border-b last:border-b-0 border-gray-100"
                 >
                   {link.label}
                 </a>
@@ -151,5 +165,5 @@ export function Navigation() {
         </div>
       )}
     </>
-  )
+  );
 }
