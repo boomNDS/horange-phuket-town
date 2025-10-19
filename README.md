@@ -6,7 +6,9 @@
 ![TypeScript 5](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat&logo=typescript&logoColor=white)
 ![Deploys on Vercel](https://img.shields.io/badge/Deploys_on-Vercel-000000?style=flat&logo=vercel&logoColor=white)
 
-![Horange Phuket Town logo](logo.png)
+<p align="center" style="background:#ffffff;padding:16px;">
+  <img src="logo.png" alt="Horange Phuket Town logo" width="260">
+</p>
 
 ### Overview
 - Boutique hostel marketing site featuring room highlights, Summer Soul Café, and booking CTA coverage for Horange Phuket Town.
