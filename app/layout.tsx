@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Playball, Prompt, Rubik } from "next/font/google"
 import Script from "next/script"
+import { Analytics } from "@vercel/analytics/next"
 
 import { GaRouteTracker } from "@/components/analytics/ga-tracker"
 import { SITE_ORIGIN, hotelStructuredData, siteDetails } from "@/lib/site-data"
@@ -116,6 +117,7 @@ export default function RootLayout({
           </>
         ) : null}
         {children}
+        <Analytics />
       </body>
     </html>
   )
