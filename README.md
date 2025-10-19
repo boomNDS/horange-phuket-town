@@ -1,4 +1,5 @@
 ## Horange Phuket Town Hostel Landing Page
+![Horange Phuket Town logo](logo.png)
 
 Marketing site for Horange Phuket Town Hostel built with Next.js 15 and Tailwind CSS 4. The page features navigation, hero messaging, highlights, services, accommodation gallery, testimonials, FAQ, contact details, and footer content tailored to the hostel experience.
 
