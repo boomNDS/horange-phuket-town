@@ -32,12 +32,12 @@
 - `components/` – presentational sections plus shared UI primitives (accordion, button, card, fade-in).
 - `lib/site-data.ts` – central content model driving copy, links, SEO meta, testimonials, and schema.org JSON-LD.
 - `public/` – drop web-ready imagery referenced via `/rooms/...`, `/highlights/...`, and `/icons/...`. Copy existing assets here before building.
-- Root assets such as `logo.png`, `hotel-exterior.png`, and `/icons` seed favicons, Open Graph art, and hero imagery.
+- Key brand assets live under `public/` (e.g., `public/logo.png`, `public/hotel-exterior.png`, `public/icons/*`) and feed favicons, Open Graph art, and hero imagery.
 
 ### 🔗 Quick Links
 - Deployment checklist → [`DEPLOYMENT.md`](DEPLOYMENT.md)
 - Core content source → [`lib/site-data.ts`](lib/site-data.ts)
-- Analytics helpers → [`analytics.ts`](analytics.ts)
+- Analytics helpers → [`lib/analytics.ts`](lib/analytics.ts)
 
 ### 🚀 Local Development
 ```bash
