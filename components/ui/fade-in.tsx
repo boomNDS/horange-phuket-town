@@ -1,6 +1,6 @@
 "use client"
 
-import type { CSSProperties, HTMLAttributeAnchorTarget, ReactHTML, ReactNode } from "react"
+import type { CSSProperties, ComponentPropsWithoutRef, ElementType, ReactNode } from "react"
 import { useEffect, useMemo, useRef, useState } from "react"
 
 import { cn } from "@/lib/utils"
@@ -14,8 +14,8 @@ const animationClassMap = {
 
 type FadeDirection = keyof typeof animationClassMap
 
-type FadeInProps = {
-  as?: keyof ReactHTML
+type FadeInProps<T extends ElementType = "div"> = {
+  as?: T
   children: ReactNode
   className?: string
   delay?: number
@@ -24,12 +24,9 @@ type FadeInProps = {
   once?: boolean
   threshold?: number
   style?: CSSProperties
-  href?: string
-  target?: HTMLAttributeAnchorTarget
-  rel?: string
-} & Omit<React.HTMLAttributes<HTMLElement>, "children" | "style" | "className">
+} & Omit<ComponentPropsWithoutRef<T>, "children" | "className" | "style">
 
-export function FadeIn({
+export function FadeIn<T extends ElementType = "div">({
   as,
   children,
   className,
@@ -40,8 +37,8 @@ export function FadeIn({
   threshold = 0.25,
   style,
   ...rest
-}: FadeInProps) {
-  const Component = (as ?? "div") as keyof ReactHTML
+}: FadeInProps<T>) {
+  const Component = (as ?? "div") as ElementType
   const [isVisible, setIsVisible] = useState(false)
   const elementRef = useRef<HTMLElement | null>(null)
 
@@ -111,7 +108,7 @@ export function FadeIn({
         className
       )}
       style={inlineStyle}
-      {...(rest as Record<string, unknown>)}
+      {...(rest as ComponentPropsWithoutRef<T>)}
     >
       {children}
     </Component>
