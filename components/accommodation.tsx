@@ -24,14 +24,14 @@ export function Accommodation() {
             Find the Right Room for Your Stay
           </p>
         </FadeIn>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8 max-w-7xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-5 sm:gap-6 md:gap-8 max-w-7xl mx-auto">
           {roomTypes.map((room, index) => {
             return (
               <FadeIn
                 as="div"
                 key={room.name}
                 delay={index * 120}
-                className="group cursor-pointer bg-white/80 md:bg-transparent rounded-3xl md:rounded-none p-4 sm:p-5 md:p-0 shadow-lg md:shadow-none"
+                className="group cursor-pointer bg-white/80 md:bg-transparent rounded-3xl md:rounded-none p-4 sm:p-5 md:p-0 shadow-lg md:shadow-none w-full md:w-[calc(33.333%-1.5rem)] max-w-md"
               >
                 <div className="relative h-56 sm:h-72 md:h-80 overflow-hidden rounded-2xl mb-3 sm:mb-6 shadow-lg">
                   <Image

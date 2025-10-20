@@ -117,7 +117,7 @@ export function Hero() {
         aria-hidden="true"
       >
         <Image
-          src="/hotel-exterior.webp"
+          src="/hero-image.webp"
           alt="Exterior of Horange Phuket Town boutique hotel"
           fill
           priority
