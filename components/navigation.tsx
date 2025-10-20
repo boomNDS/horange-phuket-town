@@ -93,7 +93,7 @@ export function Navigation() {
               alt={`${siteDetails.name} logo`}
               width={220}
               height={88}
-              className="h-[3rem] md:h-[4.5rem] w-auto object-contain"
+              className="h-[2.5rem] md:h-[4.5rem] w-auto object-contain"
               priority
             />
           </a>
@@ -134,36 +134,34 @@ export function Navigation() {
 
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
-          <div
+          <button
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             onClick={() => setMobileMenuOpen(false)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                setMobileMenuOpen(false);
+              }
+            }}
+            tabIndex={0}
+            aria-label="Close menu"
           />
           <div
             id={mobileMenuId}
             role="dialog"
             aria-modal="true"
             aria-labelledby={mobileMenuLabelId}
-            className="absolute top-30 left-1/2 -translate-x-1/2 w-[92%] max-w-md bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-5 sm:p-6 animate-fade-down animate-duration-300 animate-ease-out animate-once animate-fill-forwards focus:outline-none"
+            className="absolute top-[6rem] left-1/2 -translate-x-1/2 w-[92%] max-w-md bg-white/85 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/30 p-6 sm:p-8 animate-fade-down animate-duration-300 animate-ease-out animate-once animate-fill-forwards focus:outline-none"
           >
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(false)}
-              className="absolute top-3 right-3 p-2.5 hover:bg-white/50 rounded-full transition-colors cursor-pointer"
-              aria-label="Close navigation menu"
-              ref={closeButtonRef}
-            >
-              <X className="w-6 h-6 text-navy" />
-            </button>
             <p id={mobileMenuLabelId} className="sr-only">
               Mobile navigation
             </p>
-            <nav className="flex flex-col gap-2 mt-10">
+            <nav className="flex flex-col gap-1">
               {menuLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-base sm:text-lg font-medium text-gray-700 hover:text-copper transition-colors py-4 border-b last:border-b-0 border-gray-100"
+                  className="text-base sm:text-lg font-semibold text-gray-800 hover:text-copper hover:bg-white/50 transition-all py-4 px-4 rounded-xl border-b last:border-b-0 border-white/30"
                 >
                   {link.label}
                 </a>
