@@ -14,7 +14,11 @@ export const BOOKING_URL = "https://hotels.cloudbeds.com/reservation/xwCU2d"
 
 export const siteDetails = {
   name: "Horange Phuket Town",
-  tagline: "Boutique hotel comfort in the heart of Phuket Old Town.",
+  tagline: "Wake up in Phuket Old Town, enjoy cozy café downstairs, and plenty of parking nearby",
+  hero: {
+    title: "Comfortable Stay in the Heart of Phuket Old Town",
+    subtitle: "Wake up in Phuket Old Town, enjoy cozy café downstairs, and plenty of parking nearby",
+  },
   description:
     "Experience boutique hotel comfort at Horange Phuket Town Hotel. Located 3 minutes walk from Phuket Old Town with free parking, Summer Soul Café, and modern amenities. Book direct for best rates.",
   seo: {
