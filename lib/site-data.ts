@@ -51,7 +51,7 @@ export const siteDetails = {
   },
   bookingUrl: BOOKING_URL,
   priceRange: "$$",
-  metaImage: "/hotel-exterior.png",
+  metaImage: "/hotel-exterior.webp",
   address: {
     street: "57/3-9, Phuket Road, Talat Yai",
     city: "Mueang Phuket",
@@ -89,9 +89,9 @@ export const navigationLinks = [
 ]
 
 export const highlightItems = [
-  { icon: "map-pin", label: "3 Minutes to Phuket Old Town", image: "/highlights/old-town.jpg" },
-  { icon: "coffee", label: "Summer Soul Café at Lobby", image: "/highlights/cafe.jpg" },
-  { icon: "car", label: "50+ Free Parking Spaces", image: "/highlights/parking.jpg" },
+  { icon: "map-pin", label: "3 Minutes to Phuket Old Town", image: "/highlights/old-town.webp" },
+  { icon: "coffee", label: "Summer Soul Café at Lobby", image: "/highlights/cafe.webp" },
+  { icon: "car", label: "50+ Free Parking Spaces", image: "/highlights/parking.webp" },
 ] as const
 
 export const services = [
@@ -128,11 +128,11 @@ export const services = [
 ] as const
 
 export const roomTypes = [
-  { name: "Standard Room", image: "/rooms/standard.jpg" },
-  { name: "Superior Room", image: "/rooms/superior.jpg" },
-  { name: "Deluxe Room", image: "/rooms/deluxe.jpg" },
-  { name: "Deluxe Room with Bathtub", image: "/rooms/deluxe-bathtub.jpg" },
-  { name: "Studio Room", image: "/rooms/studio.jpg" },
+  { name: "Standard Room", image: "/rooms/standard.webp" },
+  { name: "Superior Room", image: "/rooms/superior.webp" },
+  { name: "Deluxe Room", image: "/rooms/deluxe.webp" },
+  { name: "Deluxe Room with Bathtub", image: "/rooms/deluxe-bathtub.webp" },
+  { name: "Studio Room", image: "/rooms/studio.webp" },
 ] as const
 
 export const reviewBadges = [

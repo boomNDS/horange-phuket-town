@@ -19,7 +19,7 @@ export function Contact() {
         {/* Left side - Contact Info */}
         <div className="relative order-1 min-h-[360px] sm:min-h-[480px] md:min-h-[600px] flex items-center justify-center px-4 sm:px-10 py-12 sm:py-24 overflow-hidden">
           <Image
-            src="/hotel-exterior.png"
+            src="/hotel-exterior.webp"
             alt="Facade of Horange Phuket Town"
             fill
             className="object-cover"
