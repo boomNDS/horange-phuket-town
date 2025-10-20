@@ -17,9 +17,9 @@ const menuLinks = [
 export function Navigation() {
   return (
     <>
-      <header className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 rounded-full max-w-6xl w-[96%]">
+      <header className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 rounded-full max-w-5xl w-[95%]">
         <nav
-          className="flex items-center justify-between rounded-full border border-white/20 bg-white/70 px-6 md:px-10 py-3 md:py-4 text-navy shadow-2xl backdrop-blur-xl"
+          className="flex items-center justify-between rounded-full border border-white/20 bg-white/70 px-5 md:px-9 py-2.5 md:py-3.5 text-navy shadow-2xl backdrop-blur-xl"
           aria-label="Primary"
         >
           <a
@@ -29,9 +29,9 @@ export function Navigation() {
             <Image
               src="/logo.png"
               alt={`${siteDetails.name} logo`}
-              width={300}
-              height={120}
-              className="h-[4.5rem] md:h-[6.5rem] lg:h-[7rem] w-auto object-contain"
+              width={260}
+              height={104}
+              className="h-[4rem] md:h-[5.5rem] w-auto object-contain"
               priority
             />
           </a>
