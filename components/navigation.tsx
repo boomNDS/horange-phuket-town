@@ -4,7 +4,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "@/components/icons";
+import { CalendarDays, Menu, X } from "lucide-react";
 import { trackGaEvent } from "@/lib/analytics";
 import { BOOKING_URL, siteDetails } from "@/lib/site-data";
 
@@ -86,14 +86,14 @@ export function Navigation() {
 
           <a
             href="#hero"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0"
           >
             <Image
               src="/logo.png"
               alt={`${siteDetails.name} logo`}
               width={220}
               height={88}
-              className="h-[2.5rem] md:h-[4.5rem] w-auto object-contain"
+              className="h-[2rem] md:h-[4.5rem] w-auto object-contain"
               priority
             />
           </a>
@@ -112,7 +112,7 @@ export function Navigation() {
 
           <Button
             asChild
-            className="bg-copper hover:bg-copper/90 text-white shadow-md hover:shadow-lg transition-all rounded-full px-4 md:px-6 text-sm md:text-base py-2.5 md:py-3.5"
+            className="bg-copper hover:bg-copper/90 text-white shadow-md hover:shadow-lg transition-all rounded-full px-3 md:px-6 text-sm md:text-base py-2.5 md:py-3.5"
           >
             <a
               href={BOOKING_URL}
@@ -125,8 +125,11 @@ export function Navigation() {
                   label: "navigation",
                 })
               }
+              className="flex items-center gap-2"
             >
-              Book Now
+              <CalendarDays className="w-4 h-4 md:hidden" aria-hidden="true" />
+              <span className="hidden md:inline">Book Now</span>
+              <span className="md:hidden sr-only">Book Now</span>
             </a>
           </Button>
         </nav>
@@ -135,7 +138,7 @@ export function Navigation() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <button
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm cursor-pointer"
             onClick={() => setMobileMenuOpen(false)}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
