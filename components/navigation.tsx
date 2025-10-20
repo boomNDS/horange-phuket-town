@@ -6,6 +6,14 @@ import { Button } from "@/components/ui/button";
 import { trackGaEvent } from "@/lib/analytics";
 import { BOOKING_URL, siteDetails } from "@/lib/site-data";
 
+const menuLinks = [
+  { href: "#services", label: "Highlights" },
+  { href: "#rooms", label: "Rooms" },
+  { href: "#reviews", label: "Reviews" },
+  { href: "#faq", label: "FAQ" },
+  { href: "#location", label: "Contact" },
+];
+
 export function Navigation() {
   return (
     <>
@@ -27,6 +35,18 @@ export function Navigation() {
               priority
             />
           </a>
+
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+            {menuLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-base font-medium text-gray-700 hover:text-copper transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
 
           <Button
             asChild
