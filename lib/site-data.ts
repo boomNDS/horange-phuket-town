@@ -16,7 +16,7 @@ export const siteDetails = {
   name: "Horange Phuket Town",
   tagline: "Wake up in Phuket Old Town, enjoy cozy café downstairs, and plenty of parking nearby",
   hero: {
-    title: "Comfortable Stay in the Heart of Phuket Old Town",
+    title: "Stay in the Heart of Phuket Old Town",
     subtitle: "Wake up in Phuket Old Town, enjoy cozy café downstairs, and plenty of parking nearby",
   },
   description:
