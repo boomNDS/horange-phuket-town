@@ -59,7 +59,7 @@ export const siteDetails = {
   contact: {
     phone: "065 549 7738",
     phoneInternational: "+66-65-549-7738",
-    email: "horangeboutiqueroom@gmail.com",
+    email: "rsvn.horange@gmail.com",
   },
   socialLinks: [
     {
