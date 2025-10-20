@@ -128,6 +128,16 @@ export function Hero() {
           blurDataURL={BLUR_DATA_URL}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-navy/60 via-navy/40 to-copper/50" />
+
+        {/* Animated gradient wave overlay */}
+        <div
+          className="absolute inset-0 opacity-30 animate-gradient-wave"
+          style={{
+            background:
+              "linear-gradient(45deg, #262E40 0%, transparent 30%, #262E40 60%, transparent 100%)",
+            backgroundSize: "400% 400%",
+          }}
+        />
       </div>
 
       <div className="relative z-10 text-center text-white px-3 sm:px-6 animate-fade-up animate-duration-1000 animate-ease-out animate-once animate-fill-both">
