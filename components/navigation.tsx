@@ -19,7 +19,7 @@ export function Navigation() {
     <>
       <header className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-50 rounded-full max-w-5xl w-[95%]">
         <nav
-          className="flex items-center justify-between rounded-full border border-white/20 bg-white/70 px-5 md:px-9 py-3.5 md:py-4 text-navy shadow-2xl backdrop-blur-xl"
+          className="flex items-center justify-between rounded-full border border-white/20 bg-white/70 px-5 md:px-9 py-2 md:py-3 text-navy shadow-2xl backdrop-blur-xl"
           aria-label="Primary"
         >
           <a
@@ -31,7 +31,7 @@ export function Navigation() {
               alt={`${siteDetails.name} logo`}
               width={240}
               height={96}
-              className="h-14 md:h-20 w-auto"
+              className="h-[3.5rem] md:h-[5rem] w-auto object-contain"
               priority
             />
           </a>
