@@ -1,29 +1,34 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Playball, Prompt, Rubik } from "next/font/google"
-import Script from "next/script"
-import { Analytics } from "@vercel/analytics/next"
+import type React from "react";
+import type { Metadata } from "next";
+import { Playball, Prompt, Rubik } from "next/font/google";
+import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
-import { GaRouteTracker } from "@/components/analytics/ga-tracker"
-import { SITE_ORIGIN, absoluteUrl, hotelStructuredData, siteDetails } from "@/lib/site-data"
-import "./globals.css"
+import { GaRouteTracker } from "@/components/analytics/ga-tracker";
+import {
+  SITE_ORIGIN,
+  absoluteUrl,
+  hotelStructuredData,
+  siteDetails,
+} from "@/lib/site-data";
+import "./globals.css";
 
 const playball = Playball({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-playball",
-})
+});
 
 const rubik = Rubik({
   subsets: ["latin"],
   variable: "--font-rubik",
-})
+});
 
 const prompt = Prompt({
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin", "thai"],
   variable: "--font-prompt",
-})
+});
 
 export const metadata: Metadata = {
   title: siteDetails.seo.title,
@@ -39,7 +44,7 @@ export const metadata: Metadata = {
   authors: [{ name: siteDetails.name }],
   creator: siteDetails.name,
   publisher: siteDetails.name,
-  category: "Hospitality > Hostel",
+  category: "Hospitality > Hotel",
   formatDetection: {
     email: false,
     address: false,
@@ -83,28 +88,47 @@ export const metadata: Metadata = {
   verification: {
     google: "your-google-verification-code",
   },
-}
+};
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(hotelStructuredData) }} />
-        <meta name="description" content={siteDetails.seo.th.description} lang="th" />
-        <meta name="keywords" content={siteDetails.seo.th.keywords.join(", ")} lang="th" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(hotelStructuredData),
+          }}
+        />
+        <meta
+          name="description"
+          content={siteDetails.seo.th.description}
+          lang="th"
+        />
+        <meta
+          name="keywords"
+          content={siteDetails.seo.th.keywords.join(", ")}
+          lang="th"
+        />
         <link rel="alternate" hrefLang="th" href={`${SITE_ORIGIN}/th`} />
         <link rel="alternate" hrefLang="en" href={SITE_ORIGIN} />
       </head>
-      <body suppressHydrationWarning className={`${rubik.variable} ${playball.variable} ${prompt.variable} font-sans antialiased`}>
+      <body
+        suppressHydrationWarning
+        className={`${rubik.variable} ${playball.variable} ${prompt.variable} font-sans antialiased`}
+      >
         {GA_MEASUREMENT_ID ? (
           <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
             <Script id="ga4-init" strategy="afterInteractive">
               {`
                 window.dataLayer = window.dataLayer || [];
@@ -120,5 +144,5 @@ export default function RootLayout({
         <Analytics />
       </body>
     </html>
-  )
+  );
 }

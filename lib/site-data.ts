@@ -14,31 +14,31 @@ export const BOOKING_URL = "https://hotels.cloudbeds.com/reservation/xwCU2d"
 
 export const siteDetails = {
   name: "Horange Phuket Town",
-  tagline: "Boutique hostel comfort in the heart of Phuket Old Town.",
+  tagline: "Boutique hotel comfort in the heart of Phuket Old Town.",
   description:
-    "Experience boutique hostel comfort at Horange Phuket Town Hostel. Located 3 minutes walk from Phuket Old Town with free parking, Summer Soul Café, and modern amenities. Book direct for best rates.",
+    "Experience boutique hotel comfort at Horange Phuket Town Hotel. Located 3 minutes walk from Phuket Old Town with free parking, Summer Soul Café, and modern amenities. Book direct for best rates.",
   seo: {
-    title: "Horange Phuket Town Hostel | Boutique Hostel in Phuket Old Town",
+    title: "Horange Phuket Town Hotel | Boutique Hotel in Phuket Old Town",
     description:
-      "Stay at Horange Phuket Town Hostel for boutique-style rooms, free parking, Summer Soul Café, and quick access to Phuket Old Town. Book direct for best rates and perks.",
+      "Stay at Horange Phuket Town Hotel for boutique-style rooms, free parking, Summer Soul Café, and quick access to Phuket Old Town. Book direct for best rates and perks.",
     keywords: [
-      "Horange Phuket Town Hostel",
-      "boutique hostel Phuket",
-      "Phuket Old Town hostel",
-      "hostel with parking Phuket",
-      "Summer Soul Café hostel",
+      "Horange Phuket Town Hotel",
+      "boutique hotel Phuket",
+      "Phuket Old Town hotel",
+      "hotel with parking Phuket",
+      "Summer Soul Café hotel",
       "Phuket boutique accommodation",
       "Old Town Phuket stay",
     ],
     th: {
-      title: "โฮเรนจ์ ภูเก็ต ทาวน์ โฮสเทล | ที่พักบูทีคใจกลางเมืองเก่าภูเก็ต",
+      title: "โฮเรนจ์ ภูเก็ต ทาวน์ โฮเทล | ที่พักบูทีคใจกลางเมืองเก่าภูเก็ต",
       description:
-        "พักสบายที่ Horange Phuket Town Hostel ห้องพักสไตล์บูทีค พร้อมที่จอดรถฟรี คาเฟ่ Summer Soul และใกล้เมืองเก่าภูเก็ตเพียง 3 นาที เดินทางสะดวกและคุ้มค่าที่สุดเมื่อจองโดยตรง",
+        "พักสบายที่ Horange Phuket Town Hotel ห้องพักสไตล์บูทีค พร้อมที่จอดรถฟรี คาเฟ่ Summer Soul และใกล้เมืองเก่าภูเก็ตเพียง 3 นาที เดินทางสะดวกและคุ้มค่าที่สุดเมื่อจองโดยตรง",
       keywords: [
         "โฮเรนจ์ ภูเก็ต ทาวน์",
-        "โฮสเทลภูเก็ต",
+        "โฮเทลภูเก็ต",
         "ที่พักเมืองเก่าภูเก็ต",
-        "โฮสเทลมีที่จอดรถภูเก็ต",
+        "โฮเทลมีที่จอดรถภูเก็ต",
         "Summer Soul คาเฟ่",
         "ที่พักบูทีคภูเก็ต",
         "ที่พักภูเก็ตทาวน์",
@@ -182,7 +182,7 @@ export const faqItems = [
 
 export const hotelStructuredData = {
   "@context": "https://schema.org",
-  "@type": "Hostel",
+  "@type": "Hotel",
   name: siteDetails.name,
   description: siteDetails.seo.description,
   alternateName: siteDetails.seo.th.title,

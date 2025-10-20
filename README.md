@@ -1,4 +1,4 @@
-## 🏨 Horange Phuket Town Hostel Landing Page
+## 🏨 Horange Phuket Town Hotel Landing Page
 
 ![Next.js 15](https://img.shields.io/badge/Next.js-15.5-black?style=flat&logo=nextdotjs&logoColor=white)
 ![React 19](https://img.shields.io/badge/React-19-20232a?style=flat&logo=react&logoColor=61DAFB)
@@ -11,7 +11,7 @@
 </p>
 
 ### 📝 Overview
-- Boutique hostel marketing site highlighting Horange Phuket Town’s rooms, Summer Soul Café, and direct-booking CTAs.
+- Boutique hotel marketing site highlighting Horange Phuket Town's rooms, Summer Soul Café, and direct-booking CTAs.
 - Next.js App Router architecture with SEO best practices, schema.org coverage, and a dedicated Thai locale at `/th`.
 - Content is data-driven—update copy, links, and media from `lib/site-data.ts` without touching layout components.
 
