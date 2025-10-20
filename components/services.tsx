@@ -1,22 +1,21 @@
-import { Coffee, Droplets, Home, Lock, Plane, Wifi } from "@/components/icons";
+import Image from "next/image";
+
+import { Car, Coffee, MapPin } from "@/components/icons";
 import { FadeIn } from "@/components/ui/fade-in";
-import { services as serviceItems } from "@/lib/site-data";
-import { cn } from "@/lib/utils";
+import { BLUR_DATA_URL } from "@/lib/image-placeholders";
+import { highlightItems } from "@/lib/site-data";
 
 const iconMap = {
-  home: Home,
-  wifi: Wifi,
+  "map-pin": MapPin,
   coffee: Coffee,
-  droplets: Droplets,
-  lock: Lock,
-  plane: Plane,
+  car: Car,
 } as const;
 
 type ServiceIcon = keyof typeof iconMap;
 
 export function Services() {
   return (
-    <section id="services" className="py-12 sm:py-20 md:py-24 bg-gray-50">
+    <section id="services" className="py-12 sm:py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6">
         <FadeIn
           as="div"
@@ -24,40 +23,46 @@ export function Services() {
           direction="up"
         >
           <h2 className="font-display text-3xl sm:text-5xl md:text-6xl text-navy mb-3 sm:mb-6 px-2 sm:px-4">
-            Elevate your stay with our services
+            Why Guests Love Staying Here
           </h2>
           <p className="text-gray-600 text-base sm:text-xl max-w-3xl mx-auto leading-relaxed px-2 sm:px-4">
-            Experience unparalleled comfort and convenience with our
-            thoughtfully curated amenities designed for the modern traveler
+            Everything you need for a relaxing and convenient stay — right in
+            the heart of Phuket Old Town.
           </p>
         </FadeIn>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 lg:gap-12 max-w-6xl mx-auto">
-          {serviceItems.map((service, index) => {
-            const Icon = iconMap[service.icon as ServiceIcon];
-            const isTopRow = index < 3;
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+          {highlightItems.map((item, index) => {
+            const Icon = iconMap[item.icon as ServiceIcon];
 
             return (
               <FadeIn
-                as="div"
-                key={service.title}
+                as="article"
+                key={item.label}
                 delay={index * 120}
-                direction={isTopRow ? "up" : "down"}
-                className={cn(
-                  "flex cursor-pointer flex-col items-center text-center gap-4 sm:gap-7 group bg-white md:bg-transparent rounded-3xl md:rounded-none shadow-lg md:shadow-none p-5 sm:p-6 md:p-0 transition-transform duration-300 ease-out hover:-translate-y-1.5",
-                  isTopRow ? "pt-10 sm:pt-12" : "pt-8 sm:pt-10",
-                )}
+                className="flex flex-col items-center text-center gap-4 group cursor-pointer"
               >
-                <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-copper/10 flex items-center justify-center group-hover:bg-copper group-hover:scale-110 transition-all duration-300">
-                  <Icon className="w-7 h-7 sm:w-10 sm:h-10 text-copper group-hover:text-white transition-colors" />
+                <div className="relative w-full h-48 sm:h-56 overflow-hidden rounded-2xl shadow-lg">
+                  <Image
+                    src={item.image}
+                    alt={item.label}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(min-width: 1280px) 320px, (min-width: 768px) 33vw, 90vw"
+                    loading="lazy"
+                    quality={85}
+                    placeholder="blur"
+                    blurDataURL={BLUR_DATA_URL}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
+                  <div className="absolute inset-4 flex items-start justify-start">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-copper/80 flex items-center justify-center shadow-lg">
+                      <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+                    </div>
+                  </div>
                 </div>
-                <div className="px-2 sm:px-4">
-                  <h3 className="font-bold text-lg sm:text-2xl mb-2 sm:mb-3 text-navy group-hover:text-copper transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm sm:text-lg">
-                    {service.description}
-                  </p>
-                </div>
+                <span className="text-base sm:text-lg font-semibold text-gray-800 group-hover:text-copper transition-colors px-2">
+                  {item.label}
+                </span>
               </FadeIn>
             );
           })}

@@ -22,7 +22,7 @@ export function Testimonials() {
       <div className="container mx-auto px-4 relative z-10">
         <FadeIn as="div" className="text-center mb-6 sm:mb-8">
           <h2 className="font-display text-4xl sm:text-5xl md:text-7xl mb-6 sm:mb-8">
-            Guest Reviews
+            What Guests Are Saying
           </h2>
           <div className="flex items-center justify-center gap-4 sm:gap-6 mb-6 sm:mb-8 flex-wrap px-2">
             {reviewBadges.map((badge, index) => (
@@ -43,7 +43,8 @@ export function Testimonials() {
             ))}
           </div>
           <p className="text-white/90 text-sm sm:text-lg px-2">
-            Based on verified guest reviews
+            Over 1,000 happy guests have stayed with us and here's what they
+            loved most
           </p>
         </FadeIn>
         <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-8 max-w-6xl mx-auto mt-10 sm:mt-16">

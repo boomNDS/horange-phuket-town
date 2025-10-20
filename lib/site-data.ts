@@ -85,9 +85,9 @@ export const navigationLinks = [
 ]
 
 export const highlightItems = [
-  { icon: "map-pin", label: "3 Mins Walk to Phuket Old Town", image: "/highlights/old-town.jpg" },
+  { icon: "map-pin", label: "3 Minutes to Phuket Old Town", image: "/highlights/old-town.jpg" },
   { icon: "coffee", label: "Summer Soul Café at Lobby", image: "/highlights/cafe.jpg" },
-  { icon: "car", label: "50+ Free Parking", image: "/highlights/parking.jpg" },
+  { icon: "car", label: "50+ Free Parking Spaces", image: "/highlights/parking.jpg" },
 ] as const
 
 export const services = [
@@ -159,7 +159,7 @@ export const faqItems = [
   },
   {
     question: "When can I check in or check out?",
-    answer: "Check-in starts at 2 PM, check-out before 12 noon.",
+    answer: "Check-in starts at 2 PM, check-out before 12 PM.",
   },
   {
     question: "Is parking available?",

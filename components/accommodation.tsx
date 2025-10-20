@@ -18,11 +18,10 @@ export function Accommodation() {
           direction="up"
         >
           <h2 className="font-display text-3xl sm:text-5xl md:text-6xl text-navy mb-3 sm:mb-6">
-            Accommodation
+            Find the Right Room
           </h2>
           <p className="text-gray-600 text-base sm:text-xl max-w-3xl mx-auto leading-relaxed px-2 sm:px-4">
-            You will delight at the opportunities for adventure, romance, and
-            relaxation available at Horange Phuket Town
+            Find the Right Room for Your Stay
           </p>
         </FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8 max-w-7xl mx-auto">
