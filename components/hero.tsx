@@ -129,13 +129,45 @@ export function Hero() {
         />
         <div className="absolute inset-0 bg-gradient-to-br from-navy/60 via-navy/40 to-copper/50" />
 
-        {/* Animated gradient wave overlay */}
+        {/* Multi-layered animated gradient effects */}
+
+        {/* Primary diagonal wave - faster movement */}
         <div
-          className="absolute inset-0 opacity-30 animate-gradient-wave"
+          className="absolute inset-0 opacity-25 animate-gradient-wave"
           style={{
             background:
               "linear-gradient(45deg, #262E40 0%, transparent 30%, #262E40 60%, transparent 100%)",
             backgroundSize: "400% 400%",
+          }}
+        />
+
+        {/* Secondary diagonal wave - slower, opposite direction */}
+        <div
+          className="absolute inset-0 opacity-20 animate-gradient-wave-slow"
+          style={{
+            background:
+              "linear-gradient(-45deg, transparent 0%, #262E40 40%, transparent 70%, #262E40 100%)",
+            backgroundSize: "400% 400%",
+          }}
+        />
+
+        {/* Radial pulse from center */}
+        <div
+          className="absolute inset-0 opacity-15 animate-radial-pulse"
+          style={{
+            background:
+              "radial-gradient(circle at center, #262E40 0%, transparent 50%, #262E40 100%)",
+            backgroundSize: "200% 200%",
+          }}
+        />
+
+        {/* Subtle shimmer effect */}
+        <div
+          className="absolute inset-0 opacity-10 animate-shimmer"
+          style={{
+            background:
+              "linear-gradient(110deg, transparent 40%, rgba(255, 255, 255, 0.3) 50%, transparent 60%)",
+            backgroundSize: "200% 100%",
           }}
         />
       </div>
