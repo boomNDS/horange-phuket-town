@@ -131,7 +131,7 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 text-center text-white px-3 sm:px-6 animate-fade-up animate-duration-1000 animate-ease-out animate-once animate-fill-both">
-        <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-3 sm:mb-6 drop-shadow-2xl leading-tight">
+        <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-3 sm:mb-6 drop-shadow-2xl leading-tight whitespace-pre-line">
           {siteDetails.hero.title}
         </h1>
         <p className="text-base sm:text-xl md:text-2xl lg:text-3xl mb-5 sm:mb-10 font-light tracking-wide drop-shadow-lg max-w-3xl mx-auto px-2 leading-relaxed sm:leading-relaxed">
