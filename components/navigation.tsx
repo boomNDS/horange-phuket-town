@@ -29,9 +29,9 @@ export function Navigation() {
             <Image
               src="/logo.png"
               alt={`${siteDetails.name} logo`}
-              width={260}
-              height={104}
-              className="h-[4rem] md:h-[5.5rem] w-auto object-contain"
+              width={220}
+              height={88}
+              className="h-[3.5rem] md:h-[4.5rem] w-auto object-contain"
               priority
             />
           </a>
