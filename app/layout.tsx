@@ -1,4 +1,5 @@
 import type React from "react";
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Playball, Prompt, Rubik } from "next/font/google";
 import Script from "next/script";
@@ -137,7 +138,9 @@ export default function RootLayout({
                 gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false });
               `}
             </Script>
-            <GaRouteTracker measurementId={GA_MEASUREMENT_ID} />
+            <Suspense fallback={null}>
+              <GaRouteTracker measurementId={GA_MEASUREMENT_ID} />
+            </Suspense>
           </>
         ) : null}
         {children}
