@@ -90,7 +90,7 @@ export const navigationLinks = [
 
 export const highlightItems = [
   { icon: "map-pin", label: "3 Minutes to Phuket Old Town", image: "/highlights/old-town.webp" },
-  { icon: "coffee", label: "Summer Soul Café at Lobby", image: "/highlights/cafe.webp" },
+  { icon: "utensils", label: "Summer Soul Café at Lobby", image: "/highlights/cafe.webp" },
   { icon: "car", label: "50+ Free Parking Spaces", image: "/highlights/parking.webp" },
 ] as const
 

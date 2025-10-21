@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Star } from "@/components/icons";
+import { Star } from "lucide-react";
 import { FadeIn } from "@/components/ui/fade-in";
 import {
   reviewBadges,

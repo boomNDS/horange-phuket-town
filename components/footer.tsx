@@ -1,15 +1,13 @@
-import { siteDetails } from "@/lib/site-data"
+import { siteDetails } from "@/lib/site-data";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-navy text-white py-12">
       <div className="container mx-auto px-4">
         <div className="text-center space-y-5">
-          <h3 className="font-display text-5xl text-copper mb-6">{siteDetails.name}</h3>
-          <p className="text-white/70 max-w-2xl mx-auto leading-relaxed text-lg sm:text-xl">{siteDetails.tagline}</p>
-          <div className="pt-6 border-t border-white/10 mt-8 space-y-2">
+          <div className="pt-6 space-y-2">
             <p className="text-base text-white/60">
               Online Revenue Management by{" "}
               <a
@@ -28,5 +26,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

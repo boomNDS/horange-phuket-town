@@ -18,10 +18,11 @@ export function Accommodation() {
           direction="up"
         >
           <h2 className="font-display text-3xl sm:text-5xl md:text-6xl text-navy mb-3 sm:mb-6">
-            Find the Right Room
+            Find the Right Room for Your Stay
           </h2>
           <p className="text-gray-600 text-base sm:text-xl max-w-3xl mx-auto leading-relaxed px-2 sm:px-4">
-            Find the Right Room for Your Stay
+            Cozy, clean, and designed for comfort — each room has everything you
+            need to relax after exploring Phuket Old Town.
           </p>
         </FadeIn>
         <div className="flex flex-wrap justify-center gap-5 sm:gap-6 md:gap-8 max-w-7xl mx-auto">

@@ -1,14 +1,14 @@
 import Image from "next/image";
+import { Car, MapPin, Utensils } from "lucide-react";
 
-import { Car, Coffee, MapPin } from "@/components/icons";
 import { FadeIn } from "@/components/ui/fade-in";
 import { BLUR_DATA_URL } from "@/lib/image-placeholders";
 import { highlightItems } from "@/lib/site-data";
 
 const iconMap = {
   "map-pin": MapPin,
-  coffee: Coffee,
   car: Car,
+  utensils: Utensils,
 } as const;
 
 type ServiceIcon = keyof typeof iconMap;
